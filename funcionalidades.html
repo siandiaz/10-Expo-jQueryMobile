@@ -1,0 +1,353 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Funcionalidades de jQuery Mobile</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta charset="UTF-8">
+
+	<!-- Insertamos el CSS -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.css" />
+
+	<!-- Insertamos jQuery y jQuery Mobile -->
+	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
+</head> 
+<body> 
+
+<!--
+
+#mejorandocurso - Estudiante: Miguel Nieva
+
+Introducción jQuery Mobile  - funcionalidades.html
+
+Para construir una aplicación en jQuery Mobile se necesitan:
+
+1) CSS y 2 archivos de Javascript
+2) Saber utilizar HTML para maquetación
+3) Conocer la característica de los "Data-Attributes", ya que ellos pueden adherir información a las etiquetas y manipularse
+También se va a utilizar para identificar páginas, "headers" y "footers"
+
+-->
+
+<!-- Página Principal  
+
+
+jQuery Mobile se puede visualizar como un todo. Puedes codificar toda la página en un sólo markup, ó puedes utilizar páginas externa, la decisión dependerá de tu objetivo. La manera de lograrlo es a través del atributo de "data-role", el cual se valor será "page" y con el método de AJAX.
+
+Es muy importante que el atributo de data-role se valore con "page".
+
+-->
+
+    <section id="pagina1" data-role="page">
+
+    	<!-- Barra de herramientas (Header) -->
+
+	<header data-role="header">
+		<h1>#mejorandocurso</h1>
+	</header>
+
+	<!-- Barra de herramientas (Navegación) -->	
+
+<nav data-role="navbar">
+        <ul>
+            <li><a href="#" data-icon="minus">Primero</a></li>
+            <li><a href="#" data-icon="plus">Segundo</a></li>
+            <li><a href="#" data-icon="check">Tercero</a></li>
+            <li><a href="#" data-icon="alert">Cuarto</a></li>
+        </ul>
+        </nav>
+
+	<!-- Contenido principal -->
+
+        <div data-role="content">
+
+        	<!-- Página Interna -->
+
+		<h2>Páginas Internas</h2>
+		<p><a href="#pagina2">Ir a página 2</a></p>
+        	
+        	<!-- Utilizando AJAX | Página Externa -->
+        	
+        		<h2>Páginas Externas</h2>
+        		<p><a href="ajax1.html">Ir a página con AJAX</a></p>
+        		<h2>Páginas como Diálogos</h2>
+        		<p><a href="#pagina3" data-rel="dialog">Abrir página</a></p>
+
+        	<!-- Listas -->
+
+		<h2> Lista</h2>
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li><a href="#">Restaurantes</a></li>
+				<li><a href="#">Bares</a></li>
+				<li><a href="#">Antros</a></li>
+				<li><a href="#">Lounge</a></li>
+			</ul>
+
+        	<!-- Formas y Elementos -->
+
+		<h2> Formas y Elementos</h2>
+
+			<form method="get" action="">
+            		<fieldset data-role="fieldcontain">
+
+            			<label for="nombre">Tu Nombre</label>
+			    	<input type="text" name="nombre" id="nombre" value="Anónimo" placeholder="Tu Nombre"/>
+
+            			<label for="direccion">Dirección</label>
+			    	<input type="text" name="dirección" id="direccion" value="" placeholder="Tu Dirección"/>
+
+            			<label for="edad">Tu Edad</label>
+			    	<input type="number" name="edad" id="edad" value="" placeholder="Un número por favor"/>
+    		    		
+			    	<label for="email">Tu correo: </label>
+			    	<input type="email" name="email" id="email" value="" placeholder="@"/>
+
+			    	<label for="fechanacimiento">Fecha de Nacimiento </label>
+			    	<input type="date" name="fechanacimiento" id="fechanacimiento" value="" placeholder=""/>
+
+            		</fieldset>
+
+            		<div data-role="fieldcontain">
+				<label for="buscar">Googlemos!</label>
+				<input type="search" name="buscar" id="buscar" value="" placeholder="Buscar en..."/>
+			</div>
+
+            		<div data-role="fieldcontain">
+				<label for="bloggear">Un área común y corriente</label>
+				<textarea id="bloggear"></textarea>
+			</div>
+        </form>
+
+
+<form method="get" action="">
+            <fieldset data-role="controlgroup">
+            	<legend>Selecciona una opción:</legend>
+    		    <label for="rb1">Pizza</label>
+			    <input type="radio" name="rb" id="rb1" value="rb1"/>
+    		    <label for="rb2">Hamburguesa</label>
+			    <input type="radio" name="rb" id="rb2" value="rb2" checked="checked"/>
+    		    <label for="rb3">Sandwich</label>
+			    <input type="radio" name="rb" id="rb3" value="rb3"/>
+            </fieldset>
+
+            <fieldset data-role="controlgroup" data-type="horizontal">
+            	<legend>Estación de Radio</legend>
+    		    <label for="rb5">90.1</label>
+			    <input type="radio" name="rbtn" id="rb5" value="rb5" checked="checked"/>
+    		    <label for="rb6">92.5</label>
+			    <input type="radio" name="rbtn" id="rb6" value="rb6"/>
+    		    <label for="rb7">94.1</label>
+			    <input type="radio" name="rbtn" id="rb7" value="rb7"/>
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+            	<legend>Te gusta la clase:</legend>
+    		    <label for="cb1">Obvio</label>
+            	<input type="checkbox" name="cb1" id="cb1" />
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+            	<legend>Mejores profesores de Mejorándola</legend>
+    		    <label for="pf1">Arturo Jamaica</label>
+            	<input type="checkbox" name="pf1" id="pf1" />
+    		    <label for="pf2">Leonidas Esteban</label>
+            	<input type="checkbox" name="pf2" id="pf2" />
+            </fieldset>
+        </form>
+
+<form method="get" action="">
+            <fieldset data-role="fieldcontain">
+    		    <label for="ts1">Switch de luz</label>
+			    <select name="ts1" id="ts1" data-role="slider">
+                    <option value="On">On</option>
+                    <option value="Off">Off</option>
+                </select>
+            </fieldset>
+        </form>
+
+                <form method="get" action="">
+            <fieldset data-role="fieldcontain">
+
+            <label for="num">Volumen</label>
+            <input type="range" name="num" id="num" value="25" min="0" max="100" />
+            </fieldset>
+        </form>
+
+<!-- Selección Báscia de Menú -->
+
+                <form method="get" action="">
+            <fieldset data-role="fieldcontain">
+    		    <label for="select1">Color de tu playera Mejorándola:</label>
+			    <select name="select1" id="select1">
+                    <option value="value1">Azul</option>
+                    <option value="value2" disabled="disabled">Verde</option>
+                    <option value="value3">Morada</option>
+                    <option value="value4">Blanca</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <form method="get" action="">
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical">
+    		    <legend>Cargo de Suscripción de Revista:</legend>
+
+                <label for="month">Mes</label>
+			    <select name="month" id="month">
+                    <option value="Jan">Enero</option>
+                    <option value="Feb">Febrero</option>
+                    <option value="Mar">Marzo</option>
+                    <option value="Apr">Abril</option>
+                    <option value="May">Mayo</option>
+                    <option value="Jun">Junio</option>
+                    <option value="Jul">Julio</option>
+                    <option value="Aug">Agosto</option>
+                    <option value="Sep">Septiembre</option>
+                    <option value="Oct">Octubre</option>
+                    <option value="Nov">Noviembre</option>
+                    <option value="Dec">Diciembre</option>
+                </select>
+
+                <label for="year">Año</label>
+			    <select name="year" id="year">
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                </select>
+                </fieldset>
+            </div>
+        </form>
+
+<br />
+<!-- Blog -->
+
+<ul data-role="listview" data-inset="true">
+            <li data-role="divider">Jueves - Febrero 14</li>
+            <li><a href="#">
+                <h4>Desarrollo de un app romántico con Node</h4>
+                <p style="font-weight:bold">Todo lo que necesitas saber para crear un app que genere más romance en las parejas este 14 de Febrero</p>
+                <p class="ui-li-aside">Inicia a las 11am</p>
+                <br />
+                <p>Diferenciación de Conceptos de Back-End y Front-End</p>
+                <p>Tener conocimientos de Javascript</p>
+            </a></li>
+            <li><a href="#">
+                <h4>Una lectura de jQuery poética</h4>
+                <p style="font-weight:bold">jQuery fue creado por artistas, una plática donde se demuestra eso.</p>
+                <p class="ui-li-aside">Inicia a las 2pm</p>
+                <br />
+            </a></li>
+            <li data-role="divider">Viernes, Febrero 15</li>
+            <li><a href="#">
+                <h4>Tu tan IE y yo tan Chrome</h4>
+                <p style="font-weight:bold">Cómo lograr convertir personas a navegadores modernos.</p>
+                <p class="ui-li-aside">Inicia a las 10:30am</p>
+                <br />
+            </a></li>
+        </ul>
+
+
+
+            <form method="get" action="">
+                <fieldset class="ui-grid-b">
+                    <legend>¿Quieres comprar?</legend>
+                    <div class="ui-block-a"><button>Si</button></div>
+                    <div class="ui-block-b"><button>No</button></div>
+                    <div class="ui-block-c"><button>Más tarde...</button></div>
+                </fieldset>
+            </form>
+
+	<br />
+            <p>Agregar más información...</p>
+            <div data-role="collapsible">
+                <h1>Ver más</h1>
+                <p>Ahora te platico más del evento</p>
+            </div>
+
+            
+
+            <p>Bloques dentro de bloques</p>
+            <div data-role="collapsible">
+                <h1>Front-End</h1>
+                <div data-role="collapsible">
+                    <h1>HTML5</h1>
+                    <p>Te voy a explicar que es html.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>CSS3</h1>
+                    <p>Te voy a explicar que es css.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>JS</h1>
+                    <p>Te voy a explicar que es js.</p>
+                </div>
+            </div>
+
+
+
+            <p>Lista de Bloques</p>
+            <div data-role="collapsible-set">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h1>HTML5</h1>
+                    <p>Para comenzar, HTML es...</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>CSS3</h1>
+                    <p>Para comenzar, CSS es...</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>JS</h1>
+                    <p>Para comenzar, Javascript es...</p>
+                </div>
+            </div>
+
+
+
+	<!-- Botones -->
+
+	<h2>Botones </h2>
+
+	<a href="#" data-role="button" data-icon="star">Botón con estrellita bajo el tema de color general</a>
+	<a href="#" data-role="button" data-icon="alert" data-theme="a">Botón con alerta bajo un tema de color específico</a>
+
+        </div>
+
+        <footer data-role="footer">Page Content Footer</footer>
+    </section>
+
+
+<!--    /////////////////////////////////////////////////////////////////////////////////////////////    -->
+
+<!--2° Página Interna -->
+
+    <div id="pagina2" data-role="page">
+        <header data-role="header">
+        <h1>Contenido de Header</h1>
+        </header>
+        <div data-role="content">
+        <p>Esta es una segunda página para el usuario</p>
+        <p><a href="#pagina1">Regresar a la primera página</a></p>
+        </div>
+        <div data-role="footer">
+        		<h2>Contenido de footer</h2>
+        </div>
+    </div>
+
+<!--3° Página con diálogo -->
+
+<div id="pagina3" data-role="page">
+        <header data-role="header">
+        <h1>Página con diálogo</h1>
+        </header>
+        <div data-role="content">
+        <p>Hola! Esta es una página con diálogo</p>
+        <p><a href="#pagina1">Regresemos a la primera página</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
